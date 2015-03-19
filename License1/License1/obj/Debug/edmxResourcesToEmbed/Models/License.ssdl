@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LicenseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="LicenseModelStoreContainer">
+    <EntitySet Name="license" EntityType="LicenseModel.Store.license" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="LicenseModel.Store.Users" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="license">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="licensekey" Type="varchar" Nullable="false" MaxLength="40" />
+    <Property Name="num_days" Type="int" Nullable="false" />
+    <Property Name="num_hours" Type="int" Nullable="false" />
+    <Property Name="num_times" Type="int" Nullable="false" />
+    <Property Name="activation_date" Type="date" />
+    <Property Name="expiry_date" Type="date" />
+    <Property Name="installed_machine" Type="varchar" MaxLength="200" />
+    <Property Name="installed_user" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="First_Name" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="Last_Name" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="Email" Type="varchar" Nullable="false" MaxLength="75" />
+    <Property Name="Password" Type="varchar" Nullable="false" MaxLength="128" />
+    <Property Name="Last_Login" Type="datetime" Nullable="false" />
+    <Property Name="Date_Joined" Type="datetime" Nullable="false" />
+  </EntityType>
+</Schema>

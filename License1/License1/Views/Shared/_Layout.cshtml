@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @if (Request.IsAuthenticated)
+    {
+        <div style="float: right">
+            
+                 @Html.ActionLink(User.Identity.Name, "Details/" + Session["UserID"].ToString(), "User")...
+                 @Html.ActionLink("Logout", "Logout", "User");
+        </div>        
+    }
+    else
+    {
+        <div>
+            <table>
+                <tr>
+                    <td style="text-align: right">
+                        <p>Already An User ==></p>
+                    </td>
+                    <td style="text-align: justify">@Html.ActionLink("Login", "Login", "Admin")</td>
+                </tr>
+
+                <tr>
+                    <td style="text-align: right">
+                        <p>Become An User ==></p>
+                    </td>
+                    <td style="text-align: justify">@Html.ActionLink("Register", "Register", "Admin")</td>
+                </tr>
+            </table>
+        </div>
+    }
+
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

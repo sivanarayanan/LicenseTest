@@ -1,0 +1,90 @@
+﻿@model License1.Models.User
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>User</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Username)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Username)
+            @Html.ValidationMessageFor(model => model.Username)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.First_Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.First_Name)
+            @Html.ValidationMessageFor(model => model.First_Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Last_Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Last_Name)
+            @Html.ValidationMessageFor(model => model.Last_Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Password)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Password)
+            @Html.ValidationMessageFor(model => model.Password)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Last_Login)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Last_Login)
+            @Html.ValidationMessageFor(model => model.Last_Login)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Joined_Date)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Joined_Date)
+            @Html.ValidationMessageFor(model => model.Joined_Date)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<div>
+    @Html.ActionLink("Delete Account", "Delete/"+Session["UserId"].ToString())
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

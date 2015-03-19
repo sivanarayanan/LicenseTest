@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LicenseModelStoreContainer" CdmEntityContainer="LicenseEntities">
+    <EntitySetMapping Name="licenses">
+      <EntityTypeMapping TypeName="LicenseModel.license">
+        <MappingFragment StoreEntitySet="license">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="licensekey" ColumnName="licensekey" />
+          <ScalarProperty Name="num_days" ColumnName="num_days" />
+          <ScalarProperty Name="num_hours" ColumnName="num_hours" />
+          <ScalarProperty Name="num_times" ColumnName="num_times" />
+          <ScalarProperty Name="activation_date" ColumnName="activation_date" />
+          <ScalarProperty Name="expiry_date" ColumnName="expiry_date" />
+          <ScalarProperty Name="installed_machine" ColumnName="installed_machine" />
+          <ScalarProperty Name="installed_user" ColumnName="installed_user" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="LicenseModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+          <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Last_Login" ColumnName="Last_Login" />
+          <ScalarProperty Name="Date_Joined" ColumnName="Date_Joined" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

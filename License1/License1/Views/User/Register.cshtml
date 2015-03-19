@@ -1,0 +1,49 @@
+﻿@model License1.Models.User
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Login</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true, "");
+    <div>
+        <fieldset>
+            <legend>Login Form</legend>
+
+            <table>
+                <tr>
+                    <td style="text-align:right">@Html.LabelFor(u => u.Username)</td>
+                    <td style="text-align:justify">@Html.TextBoxFor(u => u.Username)</td>
+                </tr>
+
+                <tr>
+                    <td style="text-align:right">@Html.LabelFor(u => u.Password)</td>
+                    <td style="text-align:justify">@Html.PasswordFor(u => u.Password)</td>
+                </tr>
+
+                <tr>
+                    <td style="text-align:right">@Html.LabelFor(u => u.First_Name)</td>
+                    <td style="text-align:justify">@Html.TextBoxFor(u => u.First_Name)</td>
+                </tr>
+
+                <tr>
+                    <td style="text-align:right">@Html.LabelFor(u => u.Last_Name)</td>
+                    <td style="text-align:justify">@Html.TextBoxFor(u => u.Last_Name)</td>
+                </tr>
+
+                <tr>
+                    <td style="text-align:right">@Html.LabelFor(u => u.Email)</td>
+                    <td style="text-align:justify">@Html.TextBoxFor(u => u.Email)</td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td style="text-align:right"><input type="submit" value="Register" /></td>
+                </tr>
+            </table>
+        </fieldset>
+    </div>
+}

@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LicenseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="LicenseModelStoreContainer">
+          <EntitySet Name="license" EntityType="LicenseModel.Store.license" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Users" EntityType="LicenseModel.Store.Users" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="license">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="licensekey" Type="varchar" Nullable="false" MaxLength="40" />
+          <Property Name="num_days" Type="int" Nullable="false" />
+          <Property Name="num_hours" Type="int" Nullable="false" />
+          <Property Name="num_times" Type="int" Nullable="false" />
+          <Property Name="activation_date" Type="date" />
+          <Property Name="expiry_date" Type="date" />
+          <Property Name="installed_machine" Type="varchar" MaxLength="200" />
+          <Property Name="installed_user" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="First_Name" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="Last_Name" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="Email" Type="varchar" Nullable="false" MaxLength="75" />
+          <Property Name="Password" Type="varchar" Nullable="false" MaxLength="128" />
+          <Property Name="Last_Login" Type="datetime" Nullable="false" />
+          <Property Name="Date_Joined" Type="datetime" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LicenseModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="LicenseEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="licenses" EntityType="LicenseModel.license" />
+          <EntitySet Name="Users" EntityType="LicenseModel.User" />
+        </EntityContainer>
+        <EntityType Name="license">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="licensekey" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="num_days" Type="Int32" Nullable="false" />
+          <Property Name="num_hours" Type="Int32" Nullable="false" />
+          <Property Name="num_times" Type="Int32" Nullable="false" />
+          <Property Name="activation_date" Type="DateTime" Precision="0" />
+          <Property Name="expiry_date" Type="DateTime" Precision="0" />
+          <Property Name="installed_machine" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="installed_user" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="First_Name" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Last_Name" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="75" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="128" Unicode="false" FixedLength="false" />
+          <Property Name="Last_Login" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Date_Joined" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LicenseModelStoreContainer" CdmEntityContainer="LicenseEntities">
+          <EntitySetMapping Name="licenses">
+            <EntityTypeMapping TypeName="LicenseModel.license">
+              <MappingFragment StoreEntitySet="license">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="licensekey" ColumnName="licensekey" />
+                <ScalarProperty Name="num_days" ColumnName="num_days" />
+                <ScalarProperty Name="num_hours" ColumnName="num_hours" />
+                <ScalarProperty Name="num_times" ColumnName="num_times" />
+                <ScalarProperty Name="activation_date" ColumnName="activation_date" />
+                <ScalarProperty Name="expiry_date" ColumnName="expiry_date" />
+                <ScalarProperty Name="installed_machine" ColumnName="installed_machine" />
+                <ScalarProperty Name="installed_user" ColumnName="installed_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="LicenseModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+                <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Last_Login" ColumnName="Last_Login" />
+                <ScalarProperty Name="Date_Joined" ColumnName="Date_Joined" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
